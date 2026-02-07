@@ -1,110 +1,181 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كنزي للعطور | Kenzy Perfumes</title>
-    <meta name="description" content="قائمة عطور كنزي - فخامة العطر الأصلي" />
-    
-    <!-- Google Fonts: Cairo for modern Arabic typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Cairo', 'sans-serif'],
-            },
-            colors: {
-              brand: {
-                white: '#FFFFFF',
-                ivory: '#FAF9F7',
-                beige: '#F4F2EE',
-                gold: '#C9A96E',
-                goldLight: '#E6D5B8',
-                charcoal: '#222222',
-                gray: '#666666',
-                grayLight: '#8A8A8A',
-                border: '#E5E5E5'
-              }
-            },
-            boxShadow: {
-              'soft': '0 10px 40px -10px rgba(0,0,0,0.05)',
-              'card': '0 4px 20px rgba(0,0,0,0.03)',
-              'float': '0 8px 30px rgba(201, 169, 110, 0.3)',
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.6s ease-out forwards',
-              'slide-up': 'slideUp 0.6s ease-out forwards',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
-            }
-          },
-        },
-      }
-    </script>
-    <style>
-      body {
-        background-color: #FAF9F7;
-        color: #222222;
-        overflow-x: hidden;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #F4F2EE;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #D1D1D1;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #C9A96E;
-      }
-      .glass-nav {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(229, 229, 229, 0.5);
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-      }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="متجر كنزي للعطور - اكتشف أفخم العطور الرجالية والنسائية والعود بروائح مميزة وثبات عالي.">
 </head>
-  <body>
-    <div id="root"></div>
-    <!-- This script tag is essential to load the React app -->
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">كنزي للعطور</a>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="ابحث عن عطرك المفضل...">
+                <button type="button" aria-label="بحث">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>رائحة تميز حضورك</h1>
+            <p>تشكيلة فاخرة من أرقى العطور العالمية والشرقية</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">تسوق الآن</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <nav class="categories-nav" id="categoriesNav">
+        <div class="container">
+            <button class="category-btn active" data-category="all">الكل</button>
+            <button class="category-btn" data-category="most-requested">🔥 الأكثر طلباً</button>
+            <button class="category-btn" data-category="men">عطور رجالي</button>
+            <button class="category-btn" data-category="men-hq">💎 رجالي هاي كواليتي</button>
+            <button class="category-btn" data-category="women">عطور حريمي</button>
+            <button class="category-btn" data-category="women-hq">💎 حريمي هاي كواليتي</button>
+            <button class="category-btn" data-category="oud">عود وشرقيات</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container main-content" id="productsSection">
+        <div id="productGrid" class="product-grid">
+            <!-- Products will be injected here by JS -->
+        </div>
+        <div id="noResults" class="no-results hidden">
+            <p>عذراً، لم يتم العثور على عطور تطابق بحثك.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>كنزي للعطور</h3>
+                    <p>تميز معنا بأفضل الروائح والثبات العالي.</p>
+                </div>
+                <div class="footer-contact">
+                    <p>تواصل معنا:</p>
+                    <a href="https://wa.me/201124512664" target="_blank" class="whatsapp-link">+201124512664</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 كنزي للعطور. جميع الحقوق محفوظة.</p>
+                <p class="credits">
+                    تصميم وبرمجة بواسطة 
+                    <a href="https://wa.me/201067890109" target="_blank">يوسف أسامه</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-actions">
+        <button id="recommenderBtn" class="btn-float recommender-float">
+            <span class="icon">✨</span>
+            <span class="text">رشحلي عطر</span>
+        </button>
+        <a href="https://wa.me/201124512664" target="_blank" class="btn-float whatsapp-float">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.516l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-badges" id="modalBadges"></div>
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-subtitle" id="modalCategory"></p>
+                    
+                    <div class="scent-details">
+                        <div class="detail-item">
+                            <span class="label">نوع الرائحة:</span>
+                            <span class="value" id="modalScentType">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">مناسب لـ:</span>
+                            <span class="value" id="modalOccasion">-</span>
+                        </div>
+                         <div class="detail-item">
+                            <span class="label">الثبات:</span>
+                            <span class="value" id="modalLongevity">عالي</span>
+                        </div>
+                    </div>
+
+                    <div class="price-table">
+                        <h3>قائمة الأسعار</h3>
+                        <div id="modalPrices"></div>
+                    </div>
+
+                    <button id="orderBtn" class="btn btn-primary full-width">
+                        <span class="icon">🛍️</span>
+                        اطلب الآن عبر واتساب
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommender Modal -->
+    <div id="recommenderModal" class="modal">
+        <div class="modal-content small-modal">
+            <button class="close-modal">&times;</button>
+            <div class="recommender-flow" id="recommenderFlow">
+                <h2>رشحلي عطر ✨</h2>
+                <div class="step active" data-step="1">
+                    <p>لمن العطر؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="selectRecommenderOption('gender', 'men')">رجالي</button>
+                        <button class="option-btn" onclick="selectRecommenderOption('gender', 'women')">حريمي</button>
+                    </div>
+                </div>
+                <div class="step" data-step="2">
+                    <p>ما هو الطابع المفضل؟</p>
+                    <div class="options">
+                         <button class="option-btn" onclick="selectRecommenderOption('intensity', 'calm')">هادي ويومي</button>
+                        <button class="option-btn" onclick="selectRecommenderOption('intensity', 'strong')">فواح وقوي</button>
+                    </div>
+                </div>
+                <div class="step" data-step="3">
+                    <p>أي فصل؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="selectRecommenderOption('season', 'summer')">صيفي / منعش</button>
+                        <button class="option-btn" onclick="selectRecommenderOption('season', 'winter')">شتوي / دافئ</button>
+                    </div>
+                </div>
+                <div class="step" data-step="4">
+                    <p>الميزانية؟</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="selectRecommenderOption('price', 'economic')">اقتصادي</button>
+                        <button class="option-btn" onclick="selectRecommenderOption('price', 'luxury')">فاخر / هاي كواليتي</button>
+                    </div>
+                </div>
+                <div class="step results" data-step="5">
+                    <h3>نرشح لك:</h3>
+                    <div id="recommenderResults" class="recommender-grid"></div>
+                    <button class="btn btn-secondary" onclick="resetRecommender()">إعادة الترشيح</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
